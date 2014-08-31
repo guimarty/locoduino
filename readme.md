@@ -1,5 +1,5 @@
-Programmes Arduino pour le train miniature
-Ecriture pour locoduino.org. Vous trouverez là bas les explications des différents programmes avec leur schémas.
+Programmes Arduino pour le train miniature.
+Ecrit pour locoduino.org. Vous trouverez là bas les explications des différents programmes avec leur schémas.
 
 
 In English :
