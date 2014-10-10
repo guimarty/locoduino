@@ -1,6 +1,3 @@
-<!--Version 0.2 du 8/10/14
-db: ajout introduction et généralisation à l'analogique
--->
 # Projet Locoduino : L'Arduino au coeur d'un système DCC ou analogique
 
 ##Introduction
@@ -19,8 +16,8 @@ Mais il faut d'abord commencer par définir ce qu'est un système de pilotage nu
 ##Définitions
 La promesse d'un système de commande numérique (DCC = Digital Command Control) est de permettre de piloter plusieurs trains et accessoires à partir de 2 fils connectés aux rails. Ces 2 fils conduisent à la fois la puissance de traction ET des ordres (vitesses, fonctions des locos, commandes d'aiguilles, etc..). Cette simplification extrême est représentée sur la partie à gauche de la figure 1 suivante :
 
-![](DCCArchi1.png)
-Figure 1 (source : [http://fr.wikipedia.org/wiki/Digital_Command_Control]())
+![](images/DCCArchi1.png)
+Figure 1 ([source](http://fr.wikipedia.org/wiki/Digital_Command_Control))
 
 Elle met en oeuvre une centrale DCC (avec son amplificateur dit "Booster") et des décodeurs dans chaque locos et pour la commande des aiguilles.
 
@@ -28,9 +25,9 @@ On notera que pour piloter les trains et accessoires, il faut de toute façon un
 
 ### Les réseaux des manettes et des accessoires
 
-![](DCCArchi2.png)
+![](images/DCCArchi2.png)
 
-Figure 2 (source : [http://www.dccwiki.com/DCC_Tutorial_(Basic_System]())
+Figure 2 ([Source](http://www.dccwiki.com/DCC_Tutorial_(Basic_System))
 
 Selon les constructeurs de centrales, ces réseaux propriétaires (échappant à la normalisation DCC) se nomment "**Loconet**", proche du protocole Ethernet (Digitrax, propriétaire de LocoNet, Uhlenbrock, Fleischmann) ou "**Xpressnet**", basé sur la norme RS485 (Lenz le créateur, Atlas, Roco, ZTC, CVP, ESU, Hornby), ou **NCE Network** (NCE). La partie droite de la figure 1 montre également un raccordement sans fil d'une manette, les réseaux ci-dessus proposant des liaisons sans fil.
 
@@ -55,7 +52,7 @@ En effet, la liste des composants d'un système digital se compose :
 - d'une connexion a un ordinateur, tablette, smartphone
 - d'autres décodeurs de commande des feux de signalisation, d'éclairages, d'animations sonores, etc..
 
-Une rapide évaluation du coût d'une configuration moyenne dépasse largement les 1000€ sans compter les rails, les locos, voitures, wagons, et les éléments de décor. Rien que l'électronique! (source [http://lib.znate.ru/docs/index-143311.html]())
+Une rapide évaluation du coût d'une configuration moyenne dépasse largement les 1000€ sans compter les rails, les locos, voitures, wagons, et les éléments de décor. Rien que l'électronique! ([source](http://lib.znate.ru/docs/index-143311.html))
 
 Mais quel plaisir que celui de voir évoluer plusieurs trains en même temps, certains automatiquement, avec un réalisme surprenant, tout en respectant les règles de sécurité.
 
@@ -63,12 +60,14 @@ Mais quel plaisir que celui de voir évoluer plusieurs trains en même temps, ce
 Notre approche vise à réduire considérablement ce poste de coût en réalisant par nous-même une grande partie des équipements ci-dessus, à partir de modules Arduino et selon une architecture plus simple qui réduit le nombre des éléments matériels, à l'exception des éléments de base conformes à la norme DCC.
 
 Deux cas possibles se présentent :
+
 - La centrale DCC du commerce existe déjà et il faut s'y adapter;
 - La centrale DCC n'existe pas et nous sommes libre de concevoir un système complet.
 
 Cette 2 ème approche n'est pas nouvelle : des centrales à monter soi-même (DIY : do it yourself) existent déjà telles que :
-- Free-DCC : [http://udelmas.chez.com]()
-- Le TCO ultime : [http://clprunet.free.fr/TCOultimePresentation/TCOultimePresentation.html]()
+
+- [Free-DCC](http://udelmas.chez.com)
+- [Le TCO ultime](http://clprunet.free.fr/TCOultimePresentation/TCOultimePresentation.html)
 
 Ces réalisations permettent bien de "réduire la facture", mais ne concernent pas l'Arduino qui nous interesse ici.
 
@@ -120,11 +119,11 @@ Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront êt
 La Figure 3 représente les ingrédients de notre système complet :
 
 
-![](DCCArchi3.jpg)
+![](images/DCCArchi3.jpg)
 
 Figure 3 - image provisoire
 
-![](bravo.jpg)
+![](images/Bravo.jpg)
 
 ##Réflexion - ***trop vague et précis à la fois - a dispatcher ailleurs***
 L'idée d'un système polyvalent prédomine. Dans ce contexte, petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir si le besoin s'en fait sentir la possibilité d'agrandir sans changer ce qui a été fait précédemment. Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
