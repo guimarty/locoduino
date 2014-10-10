@@ -71,7 +71,7 @@ Cette 2 ème approche n'est pas nouvelle : des centrales à monter soi-même (DI
 
 Ces réalisations permettent bien de "réduire la facture", mais ne concernent pas l'Arduino qui nous interesse ici.
 
-Notre approche, à base d'Arduino et de periphériques largement disponibles dans le commerce à très bas prix, nous parait plus souple et évolutive, parce que modulaire et programmable par tous (le succès de la plateforme Arduino en ateste), dont la plupart des logiciels nécessaires proviennent de l'Open Source (logiciel libre). Comme il existe des multitudes de modules Arduino, diffusés selon le mode du "materiel libre" et de multiples bibliothèques en "logiciel libre", nous verrons qu'il est assez facile de construire sa propre plateforme soi-même, "made in home" : DIY (do it yourself). 
+Notre approche, à base d'Arduino et de periphériques largement disponibles dans le commerce à très bas prix, nous parait plus souple et évolutive, parce que modulaire et programmable par tous (le succès de la plateforme Arduino en atteste), dont la plupart des logiciels nécessaires proviennent de l'Open Source (logiciel libre). Comme il existe des multitudes de modules Arduino, diffusés selon le mode du "materiel libre" et de multiples bibliothèques en "logiciel libre", nous verrons qu'il est assez facile de construire sa propre plateforme soi-même, "made in home" : DIY (do it yourself). 
 
 Cette plateforme ne nécessite la réalisation d'aucun circuit imprimé et limite l'usage du fer à souder (on ne peut malheureusement pas échapper à la réalisation des câbles de liaison !). 
 
@@ -79,7 +79,7 @@ Son avantage est l'adaptation aux évolutions. Le faible prix d'un Arduino perme
 
 Un autre avantage est la maitrise du logiciel, donc des fonctionnalités, leur évolutivité, tout ceci s'appuyant sur des logiciels libres largement diffusés et testés que nous avons sélectionné pour éviter les recherches fastidieuses.
 
-Enfin, l'avantage du DIY est que ce modèle peut servir pour un réseau analogique.
+Enfin, l'avantage du DIY est que ce modèle peut servir de base pour un réseau analogique.
 
 
 ##Quelle architecture matérielle ?
@@ -101,7 +101,7 @@ Que commande t-on à partir du poste de pilotage ?
 * les feux de circulation ferroviaire, les barrières
 * les animation lumineuses : lampadaires, batiments, boutiques, enseignes, feux routiers, panneaux..
 * les animation sonores : annonces en gare, etc..
-* la configuration des paramêtres de l'ensemble
+* la configuration des paramètres de l'ensemble
 
 ###Quelle interfaces et moyens de communication ?
 Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront être tout ou partie de cette liste :
@@ -113,10 +113,10 @@ Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront êt
 * l'interfaces de commande d'aiguilles
 * l'interfaces de commande d'animations lumineuses
 * l'interfaces de commande d'animations sonores
-* bien-sur cette liste est non exhaustive...
+* bien-sur cette liste est non exhaustive... tout dépend de la sophistication qui sera voulue
 
 ## Schéma d'architecture
-La Figure 3 représente les ingrédients de notre système complet :
+La Figure 3 représente quelques ingrédients d'un système complet et opérationnel :
 
 
 ![](images/DCCArchi3.jpg)
@@ -126,9 +126,9 @@ Figure 3 - image provisoire
 ![](images/Bravo.jpg)
 
 ##Réflexion - ***trop vague et précis à la fois - a dispatcher ailleurs***
-L'idée d'un système polyvalent prédomine. Dans ce contexte, petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir si le besoin s'en fait sentir la possibilité d'agrandir sans changer ce qui a été fait précédemment. Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
+L'idée d'un système polyvalent prédomine. Dans ce contexte, petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir si le besoin s'en fait sentir la possibilité d'agrandir sans changer ce qui a été fait précédemment (au niveau du cablage). Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
 
-Une des conclusions qui peut en ressortir est qu'importe l'interface si TCO ou ordinateur, l'architecture en dessous doit être la même ainsi que le protocole de communication ; protocole de communication qui doit être multipoint dès le début de la conception. Nous en déduisons du fait d'une documentation fournie et d'une prise en charge par l'Arduino que celui-ci sera du i2c.
+Une des conclusions qui peut en ressortir est qu'importe l'interface si TCO ou ordinateur, l'architecture en dessous doit être la même ainsi que le protocole de communication ; protocole de communication qui doit être multipoint dès le début de la conception. *Nous en déduisons du fait d'une documentation fournie et d'une prise en charge par l'Arduino que celui-ci sera du i2c.*
 
 Si système polyvalent, il faut que le i2c soit reconnu par le PC facilement. Il y a certes certains cartes qui le peuvent comme le Raspberry Pi. Mais il s'agit d'être polyvalent et de pouvoir convenir à plus de monde. Il sera donc nécessaire d'avoir un Arduino convertisseur servant à transmettre les infos de part et d'autre de i2c à la voie série (usb) et vice-versa. Cette option de plus permet de modifier cette connexion filaire en connexion sans fil type bluetooth sans avoir à changer le code. De plus, il sera très facile de basculer d'un TCO virtuel à un TCO physique en échangeant l'Arduino convertisseur à l'Arduino qui a les différents composants du TCO reliés et aussi vice-versa. Il y aura même la possibilité de brancher les deux. Si l'on revient sur le raspberry pi, un des avantages est de mettre en place un hotspot wifi pour pouvoir avoir une interface sur smartphone volante, l'incovénient ainsi que celui-ci de l'ordinateur est de devoir construire une interface.
 
@@ -143,4 +143,4 @@ Si système polyvalent, il faut que le i2c soit reconnu par le PC facilement. Il
 L'idée de s'affranchir de fils offre plus de liberté quant à la position de l'ordinateur mais réduit la fiabilité de la liaison quant que ce soit en bluetooth ou wifi.
 
 ##Avertissement - !!! ne pas faire peur !!!
-de ce projet découlera des programmes qui ne corresponderont pas au réseau que vous possédez, ce ne sera pas un système tout fait. Les différents articles expliqueront la marche à suivre, mais il faut vous attendre à éditer le code et à en prendre possession.  
+de ce projet découlera des programmes qui ne corresponderont pas au réseau que vous possédez, ce ne sera pas un système tout fait. Les différents articles expliqueront la marche à suivre, vous donneront un manuel d'utilisation, mais il faut vous attendre à éditer le code et à en prendre possession. Cela vous facilitera d'autant la chose si bug il y a ; en effet votre connaissance du système pourra vous sortir de ce mauvais pas.
