@@ -108,7 +108,7 @@ Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront êt
 
 * l'interface avec un PC (pour la configuration et pour offrir un bel écran TCO, la compatibilité avec un logiciel du marché n'étant pas recherchée dans un première étape)
 * l'interface avec un TCO réel (optionnel, ou plusieurs) avec l'affichage de l'état du réseau (aiguilles et positions des trains), indicateurs lumineux, boutons de commande des aiguilles, etc..
-* l'interfaces avec une ou plusieurs manettes de commande de train (avec ou sans fil, simples ou sophistiquées - à base de smartphone ou de tablette ou faite sur mesure / DIY)
+* l'interfaces avec une ou plusieurs manettes de commande de train (avec ou sans fil, simple ou sophistiquée - à base de smartphone ou de tablette ou faite sur mesure / DIY)
 * l'interfaces de rétrosignalisation (détection de passage/présence des trains, reconnaissance des N°s de trains)
 * l'interfaces de commande d'aiguilles
 * l'interfaces de commande d'animations lumineuses
