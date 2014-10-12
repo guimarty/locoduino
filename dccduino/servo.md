@@ -3,19 +3,19 @@
 #Les servos-moteurs
 
 ##Pourquoi des servos ?
-De part l'envie d'utiliser un Arduino et afin d'ajouter du mouvement sur le réseau, il est licite de penser en premier lieu à l'utilisation des servos dans l'animation du réseau par un Arduino. La documentation est très riche dans le domaine de la robotique avec Arduino. La commande est aussi aisée car le servo est nativement "reconnue" par l'Arduino. Il est utile par contre de rappeler que un Arduino ne peut alimenter tout un tas de servos de par son ampérage total faible, alimenter par une source extérieure les servos sera indispensable.  
+De part l'envie d'utiliser un Arduino et afin d'ajouter du mouvement sur le réseau, il est licite de penser en premier lieu à l'utilisation des servos dans l'animation du réseau par un Arduino. La documentation est très riche dans le domaine de la robotique avec Arduino. La commande est aussi aisée car le servo est nativement "reconnue" par l'Arduino. Il est utile par contre de rappeler qu'un Arduino ne peut alimenter tout un tas de servos de par son ampérage total faible, alimenter par une source extérieure les servos sera donc indispensable.  
 Le second point positif est son prix. En effet, que l'on compare face à un moteur solénoïde ou un moteur lent, la facture en sera diminuée.
 
 ##Que commanderaient les servos ?
 La première fonction de ces servos serait de commander les aiguilles. Rappelons que les servos sont des moteurs dont la course est limitée entre un point A et un point B, ils ne peuvent tourner indéfiniment ; ils ne pourront pas être utilisées dans une animation tournante tel un moulin.  
-Par contre, ils peuvent être dans l'animation d'un PN. Nous verrons cela au cas par cas, si celui-ci se présente. Nous avons probablement effleurer la possibilité d'animations avec les servos.
+Par contre, ils peuvent être dans l'animation d'un PN. Nous verrons cela au cas par cas, si celui-ci se présente. Nous avons probablement fait qu'effleurer la possibilité d'animations avec les servos.
 
 ##Quel est le mouvement d'une aiguille ?
 La réalité dicte un mouvement lent qui permet la visualisation du changement d'état de l'aiguille.  
 Cependant, la miniaturisation n'est pas aussi précise. Nous avons déjà parlé des deux types de moteurs qui co-existent. Il y a donc 2 types de mouvement en miniature :
 
-* mouvement rapide d'un solénoïde avec une aiguille qui possède un ressort de plaquage (a deux positions de base pour voie déviée et voie droite)
-* mouvement lent d'un moteur lent avec une aiguille n'ayant pas de ressort de plaquage (n'a pas de position de base)
+* mouvement rapide d'un solénoïde avec une aiguille qui possède un ressort de plaquage (a deux positions de base pour voie déviée et voie droite). Là, le ressort qui va faire rester l'aiguille dans la position définie. Si la tige du moteur bouge un peu, l'aiguille reviendra à sa position grâce au ressort.
+* mouvement lent d'un moteur lent avec une aiguille n'ayant pas de ressort de plaquage (n'a pas de position de base), c'est le moteur par sa tige qui va faire rester l'aiguille dans la position définie.
 
 Le mouvement du servo est maniable. Il peut donc copier ces deux types de mouvement. Dans le cas d'un réseau déjà en fonctionnement, il pourra remplacer nimporte lequel. Notez que l'Arduino n'est pas seulement capable de commander des servos mais les moteurs solénoïdes et lents sont aussi commandables par l'Arduino, mais ce ne sera pas l'objet de cet article.
 
