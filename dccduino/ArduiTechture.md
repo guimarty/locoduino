@@ -74,17 +74,9 @@ Cette 2 ème approche n'est pas nouvelle : des centrales à monter soi-même (DI
 
 Ces réalisations permettent bien de "réduire la facture", mais ne concernent pas l'Arduino qui nous interesse ici.
 
-<<<<<<< Updated upstream
-Notre approche, à base d'Arduino et de periphériques largement disponibles dans le commerce à très bas prix, nous parait plus souple et évolutive, parce que modulaire et programmable par tous (le succès de la plateforme Arduino en atteste), dont la plupart des logiciels nécessaires proviennent de l'Open Source (logiciel libre). Comme il existe des multitudes de modules Arduino, diffusés selon le mode du "materiel libre" et de multiples bibliothèques en "logiciel libre", nous verrons qu'il est assez facile de construire sa propre plateforme soi-même, "made in home" : DIY (do it yourself). 
-=======
-<<<<<<< HEAD
 Notre approche, à base d'Arduino et de périphériques largement disponibles dans le commerce à très bas prix, nous parait plus souple et évolutive, parce que modulaire et programmable par tous (le succès de la plateforme Arduino en ateste), dont la plupart des logiciels nécessaires proviennent de l'Open Source (logiciel libre). Comme il existe des multitudes de modules Arduino, diffusés selon le mode du "materiel libre" et de multiples bibliothèques en "logiciel libre", nous verrons qu'il est assez facile de construire sa propre plateforme soi-même, "made in home" : DIY (do it yourself). 
-=======
-Notre approche, à base d'Arduino et de periphériques largement disponibles dans le commerce à très bas prix, nous parait plus souple et évolutive, parce que modulaire et programmable par tous (le succès de la plateforme Arduino en atteste), dont la plupart des logiciels nécessaires proviennent de l'Open Source (logiciel libre). Comme il existe des multitudes de modules Arduino, diffusés selon le mode du "materiel libre" et de multiples bibliothèques en "logiciel libre", nous verrons qu'il est assez facile de construire sa propre plateforme soi-même, "made in home" : DIY (do it yourself). 
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 
-Cette plateforme ne nécessite la réalisation d'aucun circuit imprimé et limite l'usage du fer à souder (on ne peut malheureusement pas échapper à la réalisation des câbles de liaison !). 
+Cette plateforme ne nécessite la réalisation d'aucun circuit imprimé et limite l'usage du fer à souder (on ne peut malheureusement pas échapper à la réalisation des câbles de liaison !). Mais cela sera tout de même un plus pour celui voudra installer en dur son matériel.
 
 Son avantage est l'adaptation aux évolutions. Le faible prix d'un Arduino permet d'en installer plusieurs si l'évolution du réseau le nécessite. Les différents modules communiquent entre eux pour se partager les événements et les fonctions à réaliser.
 
@@ -119,9 +111,6 @@ Que commande t-on à partir d'un poste de pilotage ?
 * les animation sonores : annonces en gare, etc..
 <<<<<<< Updated upstream
 * la configuration des paramètres de l'ensemble
-=======
-<<<<<<< HEAD
-* la configuration des paramêtres de l'ensemble.
 * la programmation des décodeurs
 
 S'il s'agit d'une manette (manette réelle ou smartphone/tablette faisant tourner une application de type "manette"), les commandes se limitent au pilotage des trains (moteur et fonctions).
@@ -129,10 +118,6 @@ S'il s'agit d'une manette (manette réelle ou smartphone/tablette faisant tourne
 S'il s'agit d'un TCO, les commandes agiront sur les aiguilles et les animations avec un retour par la rétrosignalisation.
 
 S'il s'agit d'un ordinateur personnel, toutes les commandes possibles et la rétrosignalisation seront possibles.
-=======
-* la configuration des paramètres de l'ensemble
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 
 ###Quelle interfaces et moyens de communication ?
 Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront être tout ou partie de cette liste :
@@ -146,17 +131,9 @@ Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront êt
 * l'interfaces de commande d'animations sonores
 * bien-sur cette liste est non exhaustive... tout dépend de la sophistication qui sera voulue
 
-<<<<<<< HEAD
+
 ## Schémas d'architecture
 La Figure 3 représente les ingrédients d'un exemple de système, où les commandes sont regroupées dans un TCO qui supporte la génération du DCC, le pilotage des trains et les commande des autres éléments du réseau par l'intermédiaire d'un controlleur. celui-ci pilote directement des accessoires (aiguille et capteurs) et produit la rétrosignalisation.
-=======
-## Schéma d'architecture
-La Figure 3 représente quelques ingrédients d'un système complet et opérationnel :
-<<<<<<< Updated upstream
-=======
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
-
 
 ![](images/DCCArchi3.jpg)
 
@@ -169,20 +146,10 @@ Une troisième architecture permet le pilotage par un ordnateur personnel.
 ![](images/DCCArchi5.jpg)
 
 
-<<<<<<< HEAD
 ##Flexibilité, evolutivité
 On tendra vers un système polyvalent. Petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir, si le besoin s'en fait sentir, la possibilité d'agrandir sans changer ce qui a été fait précédemment. Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
 
 Une technologie de communication est nécessaire pour permettre aux Arduinos de coopérer, entre eux d'une part et avec un certain nombre de périphériques d'autre part. Nous en déduisons du fait de sa présence native et d'une documentation bien fournie que celui-ci pourra être de l'I2C.
-=======
-##Réflexion - ***trop vague et précis à la fois - a dispatcher ailleurs***
-L'idée d'un système polyvalent prédomine. Dans ce contexte, petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir si le besoin s'en fait sentir la possibilité d'agrandir sans changer ce qui a été fait précédemment (au niveau du cablage). Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
-
-Une des conclusions qui peut en ressortir est qu'importe l'interface si TCO ou ordinateur, l'architecture en dessous doit être la même ainsi que le protocole de communication ; protocole de communication qui doit être multipoint dès le début de la conception. *Nous en déduisons du fait d'une documentation fournie et d'une prise en charge par l'Arduino que celui-ci sera du i2c.*
-<<<<<<< Updated upstream
-=======
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 
 Mais d'autres technologies de communication seront supportées notamment pour l'interface avec un ordinateur personnel qui supporte principalement l'USB en communications série asynchrone, le Bluetooth ou le Wifi pour le sans fil.
 
@@ -193,13 +160,5 @@ Mais d'autres technologies de communication seront supportées notamment pour l'
 * Les Leds des feux de signalisation et des éclairages sont commandées via un étage de puissance puisque l'Arduino ne sera pas à même de fournir l'ampérage nécessaire en général.
 
 
-<<<<<<< HEAD
 ##Avertissement
-De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires.  
-=======
-##Avertissement - !!! ne pas faire peur !!!
-de ce projet découlera des programmes qui ne corresponderont pas au réseau que vous possédez, ce ne sera pas un système tout fait. Les différents articles expliqueront la marche à suivre, vous donneront un manuel d'utilisation, mais il faut vous attendre à éditer le code et à en prendre possession. Cela vous facilitera d'autant la chose si bug il y a ; en effet votre connaissance du système pourra vous sortir de ce mauvais pas.
-<<<<<<< Updated upstream
-=======
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
+De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif.
