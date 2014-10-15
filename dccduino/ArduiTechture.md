@@ -109,7 +109,6 @@ Que commande t-on à partir d'un poste de pilotage ?
 * les feux de circulation ferroviaire, les barrières
 * les animation lumineuses : lampadaires, batiments, boutiques, enseignes, feux routiers, panneaux..
 * les animation sonores : annonces en gare, etc..
-<<<<<<< Updated upstream
 * la configuration des paramètres de l'ensemble
 * la programmation des décodeurs
 
@@ -117,7 +116,7 @@ S'il s'agit d'une manette (manette réelle ou smartphone/tablette faisant tourne
 
 S'il s'agit d'un TCO, les commandes agiront sur les aiguilles et les animations avec un retour par la rétrosignalisation.
 
-S'il s'agit d'un ordinateur personnel, toutes les commandes possibles et la rétrosignalisation seront possibles.
+S'il s'agit d'un ordinateur personnel, toutes les commandes ainsi que la rétrosignalisation seront possibles.
 
 ###Quelle interfaces et moyens de communication ?
 Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront être tout ou partie de cette liste :
@@ -137,7 +136,7 @@ La Figure 3 représente les ingrédients d'un exemple de système, où les comma
 
 ![](images/DCCArchi3.jpg)
 
-Une autre architecture ajoute des manettes pour piloter indépendad-ment les uns des autres.
+Une autre architecture ajoute des manettes pour piloter indépendament les uns des autres.
 
 ![](images/DCCArchi4.jpg)
 
@@ -159,6 +158,8 @@ Mais d'autres technologies de communication seront supportées notamment pour l'
 * Les aiguilles sont commandées via des servos par la librairie servo, mais aussi via des relais pour les moteurs d'aiguillage à impulsion.
 * Les Leds des feux de signalisation et des éclairages sont commandées via un étage de puissance puisque l'Arduino ne sera pas à même de fournir l'ampérage nécessaire en général.
 
+##Détail important pour le code (à voir si un seul)
+Qu'importe la présence d'un ou plusieurs Arduinos, il faut tenir compte du caractère d'urgence de certains messages DCC comme l'arrêt total du système. En effet, tout réseau ne comportera pas automatiquement de rétrosgnalisation. Quelles solutions ?
 
 ##Avertissement
 De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif.
