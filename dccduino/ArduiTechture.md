@@ -1,9 +1,9 @@
 # Projet Locoduino : L'Arduino au coeur d'un système DCC ou analogique
 
 ##Introduction
-L'Arduino a de multiples raisons de trouver sa place dans les systèmes de pilotage des modèles réduits ferroviaires, qu'ils soient numériques ou analogiques. Mais probablement plus encore pour les systèmes numériques auxquels on va s'atteler pour commencer. 
+L'Arduino a de multiples raisons de trouver sa place dans les systèmes de pilotage des modèles réduits ferroviaires, qu'ils soient numériques ou analogiques. Mais probablement plus encore pour les systèmes numériques auxquels on va s'atteler pour commencer.
 
-Vous possédez déjà une centrale, quelques modules Arduino vous permettront de la compléter. 
+Vous possédez déjà une centrale, quelques modules Arduino vous permettront de la compléter.
 
 Vous n'avez pas encore de centrale, c'est l'occasion rêvée de concevoir votre système sur mesure !
 
@@ -33,7 +33,7 @@ Figure 2 ([Source dccwiki](http://www.dccwiki.com/DCC_Tutorial_(Basic_System))
 
 Selon les constructeurs de centrales, ces réseaux propriétaires (échappant à la normalisation DCC) se nomment "**Loconet**", proche du protocole Ethernet (Digitrax, propriétaire de LocoNet, Uhlenbrock, Fleischmann) ou "**Xpressnet**", basé sur la norme RS485 (Lenz le créateur, Atlas, Roco, ZTC, CVP, ESU, Hornby), ou **NCE Network** (NCE). La partie droite de la figure 1 montre également un raccordement sans fil d'une manette, les réseaux ci-dessus proposant des liaisons sans fil.
 
-Si l'on revient sur la partie droite de la figure 1, on constate que le réseau d'alimentation et de commande est souvent scindé en 2 parties : une partie pour l'alimentation des locos, via les rails (et souvent via aussi les détecteurs de présence nécessaires au cantonnement) et une partie pour la transmission des commandes aux accessoires (aiguilles, signaux, éclairages, animations sonores, etc..). Cela impose de disposer d'autant de décodeurs que d'accessoires ou groupes d'accessoires. 
+Si l'on revient sur la partie droite de la figure 1, on constate que le réseau d'alimentation et de commande est souvent scindé en 2 parties : une partie pour l'alimentation des locos, via les rails (et souvent via aussi les détecteurs de présence nécessaires au cantonnement) et une partie pour la transmission des commandes aux accessoires (aiguilles, signaux, éclairages, animations sonores, etc..). Cela impose de disposer d'autant de décodeurs que d'accessoires ou groupes d'accessoires.
 
 ### Les réseaux de rétrosignalisation
 Un troisième réseau est également nécessaire : celui de la **rétrosignalisation** qui a pour but de remonter à la centrale les événements de circulation (détection de présence ou de passage des trains, entre autres). Propriétaires également, ces réseaux se nomment **Loconet** (Digitrax, Fleishmann, Uhlenbrock, Roco, Zimo), **S88** (ESU, Fleishmann, Tams, Uhlenbrock, Viessmann) ou **RS-feedback** (Lenz).
