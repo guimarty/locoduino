@@ -2,27 +2,27 @@
 
 Writed for [Locoduino](http://www.locoduino.org), french site for train and Arduino.  
 You will have at this URL more explications but in French, but the goal is easy with images.
+Sketches made with functions : for, while or delay so it's one sketch by arduino.
 
 
 ## En
 
 Sketchbook to playing with LED :
 
-* Chenillard.ino : light for road with 
+* Chenillard.ino : light for road with
 
 * enseignemagasin.ino : light playing for shop
 
-* feutricoloreV1.ino : french traffic lights version 1
+* feutricolore.ino : french traffic lights
 
-* feutricoloreV2.ino : french traffic lights version 2 (other wiring and code) coming soon
-
-* light3in1V1.ino : chenillard + enseignemagasin + feutricolore in 1 sketch version 1
-
-* light3in1V2.ino : chenillard + enseignemagasin + feutricolore in 1 sketch version 2 (other wiring and code)
+* light3in1V1.ino and light3in1V2 : chenillard + enseignemagasin + feutricolore in 1 sketch
 
 ------------
 
 ## Fr
+
+Fait avec des fonctions bloquantes style delay, fort ou while. Un autre dossier reprendra ces programmes mais non bloquants, programmes qui pourront être incorporés dans un plus grand ensemble.
+1 programme pour 1 arduino.
 
 Livre de programmes pour jouer avec les lumières :
 
@@ -30,11 +30,6 @@ Livre de programmes pour jouer avec les lumières :
 
 * enseignemagasin.ino : plusieurs animations pour des magasins
 
-* feutricoloreV1.ino : feu tricolore français version 1
+* feutricolore.ino : feu tricolore français
 
-* feutricoloreV2.ino : feu tricolore français version 2 (autre cablage et écriture)
-
-* light3in1V1.ino : chenillard + enseignemagasin + feutricolore en 1 programme version 1
-
-* light3in1V2.ino : chenillard + enseignemagasin + feutricolore en 1 programme version 2 (autre cablage et écriture)
-
+* light3in1V1.ino et light3in1V2: chenillard + enseignemagasin + feutricolore en 1 programme version 1
