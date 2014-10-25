@@ -14,29 +14,50 @@ Le but de cet article est de vous présenter toutes les opportunités d'introdui
 Mais il faut d'abord commencer par définir ce qu'est un système de pilotage numérique.
 
 ##Définitions
-La promesse d'un système de commande numérique (DCC = Digital Command Control) est de permettre de piloter plusieurs trains et accessoires à partir de 2 fils connectés aux rails. Ces 2 fils conduisent à la fois la puissance de traction ET des ordres (vitesses, fonctions des locos, commandes d'aiguilles, etc..). Cette simplification extrême est représentée sur la partie à gauche de la figure 1 suivante :
+La promesse d'un système de commande numérique (DCC = Digital Command Control) est de permettre de piloter plusieurs trains et accessoires à partir de 2 fils connectés aux rails. Ces 2 fils conduisent à la fois la puissance de traction ET des ordres de pilotage du matériel roulant ET des voies (vitesses, fonctions des locos, commandes d'aiguilles, etc..). Cette simplification extrême est représentée sur la partie à gauche de la figure 1 suivante :
 
 ![](images/DCCArchi1.png)
 Figure 1 ([source wikipedia](http://fr.wikipedia.org/wiki/Digital_Command_Control))
 
-Elle met en oeuvre une centrale DCC (avec son amplificateur dit "Booster") et des décodeurs dans chaque locos et pour la commande des aiguilles.
+Elle met en oeuvre une centrale DCC (avec son amplificateur dit "Booster", ici intégré à la centrale) et des décodeurs dans chaque loco et à chaque aiguille.
 
-On notera que pour piloter les trains et accessoires, il faut de toute façon une interface avec nous, les pilotes humains, que ce soient des manettes (Throttle), des TCOs (tableau de control operationnel, plus généralement dédié aux accessoires tels que les aiguilles et la signalisation), voire des smartphones, tablettes et ordinateurs. En informatique on appelle cela l'IHM (Interface Homme Machine). Il en découle la nécessité d'un réseau de raccordement des ces organes de commande. Ils se nomme "Throttle network" sur la figure 2.
+Cela correspond grosso-modo à un kit de démarrage tel que celui de Fleishmann (Figure 2) :
 
-Mais cela ne suffit pas si l'on veut un peu d'automatisme comme le block-système ou le cantonnement, la régulation du trafic, la gestion des signaux et quelques animations lumineuses et sonores : Il faut un autre réseau pour la rétrosignalisation.
+![](images/DCCStart2.jpg)
+
+ou Minitrix (Figure 3) :
+
+![](images/DCCStart3.jpg)
+
+On notera que pour piloter les trains et accessoires, il faut de toute façon une interface avec nous, les pilotes humains, que ce soient des manettes (Throttle), des TCOs (tableau de control operationnel, plus généralement dédié aux accessoires tels que les aiguilles et la signalisation), voire des smartphones, tablettes et ordinateurs (avec un logiciel de pilotage). En informatique on appelle cela l'IHM (Interface Homme Machine). 
+
+A l'opposé des manettes ci-dessus, si l'on veut se contenter d'un ordinateur et d'un logiciel de pilotage (RocRail, JMRI, Train Controller, Windigipet, etc..), une simple centrale SPROG (2 ou 3) peut suffir, en connexion USB avec l'ordinateur (Figure 4).
+
+![](images/DCCSprog4.jpg)
+
+Mais en général, on aura tôt ou tard besoin de plusieurs organes d'IHM qui coexistent. Il en découle la nécessité d'un réseau de raccordement des ces organes de commande. Ils se nomme "Throttle network" sur la figure 5.
 
 ### Les réseaux des manettes et accessoires
 
-![](images/DCCArchi2.png)
+![](images/DCCArchi5.png)
 
-Figure 2 ([Source dccwiki](http://www.dccwiki.com/DCC_Tutorial_(Basic_System))
+Figure 5 ([Source dccwiki](http://www.dccwiki.com/DCC_Tutorial_(Basic_System))
 
 Selon les constructeurs de centrales, ces réseaux propriétaires (échappant à la normalisation DCC) se nomment "**Loconet**", proche du protocole Ethernet (Digitrax, propriétaire de LocoNet, Uhlenbrock, Fleischmann) ou "**Xpressnet**", basé sur la norme RS485 (Lenz le créateur, Atlas, Roco, ZTC, CVP, ESU, Hornby), ou **NCE Network** (NCE). La partie droite de la figure 1 montre également un raccordement sans fil d'une manette, les réseaux ci-dessus proposant des liaisons sans fil.
 
-Si l'on revient sur la partie droite de la figure 1, on constate que le réseau d'alimentation et de commande est souvent scindé en 2 parties : une partie pour l'alimentation des locos, via les rails (et souvent via aussi les détecteurs de présence nécessaires au cantonnement) et une partie pour la transmission des commandes aux accessoires (aiguilles, signaux, éclairages, animations sonores, etc..). Cela impose de disposer d'autant de décodeurs que d'accessoires ou groupes d'accessoires.
+Autant dire qu'il n'y a pas beaucoup de compatibilité entre les éléments d'un constructeur et ceux d'un autre, du coté des centrales et des IHM.
+
+***La norme DCC permet heureusement de libérer les choix des matériels roulants et des accessoires.***
+
+Il reste que cela impose de disposer d'autant de décodeurs que de matériels roulants et d'accessoires ou groupes d'accessoires (une commande DCC peut agir sur 8 actionneurs maximum).
+
+A noter que, si l'on revient sur la partie droite de la figure 1, le réseau d'alimentation et de commande est souvent scindé en 2 parties : une partie pour l'alimentation des locos, via les rails (et souvent aussi via les détecteurs de présence nécessaires au cantonnement) et une partie pour la transmission des commandes aux accessoires (aiguilles, signaux, éclairages, animations sonores, etc..), afin d'éviter les parasites inévitables sur les rails. 
+
+Mais cela ne suffit pas si l'on veut un peu d'automatisme comme le block-système ou le cantonnement, la régulation du trafic, la gestion des signaux et quelques animations lumineuses et sonores : Il faut encore un autre réseau pour la rétrosignalisation.
+
 
 ### Les réseaux de rétrosignalisation
-Un troisième réseau est également nécessaire : celui de la **rétrosignalisation** qui a pour but de remonter à la centrale les événements de circulation (détection de présence ou de passage des trains, entre autres). Propriétaires également, ces réseaux se nomment **Loconet** (Digitrax, Fleishmann, Uhlenbrock, Roco, Zimo), **S88** (ESU, Fleishmann, Tams, Uhlenbrock, Viessmann) ou **RS-feedback** (Lenz).
+Un troisième réseau est donc nécessaire : celui de la **rétrosignalisation** qui a pour but de remonter à la centrale les événements de circulation (détection de présence ou de passage des trains, entre autres). Propriétaires également, ces réseaux se nomment **Loconet** (Digitrax, Fleishmann, Uhlenbrock, Roco, Zimo), **S88** (ESU, Fleishmann, Tams, Uhlenbrock, Viessmann) ou **RS-feedback** (Lenz).
 
 ###Le casse-tête du modéliste ferroviaire
 La promesse de compatibilité entre constructeurs est ainsi mise en échec et le coût d'un système de pilotage complet digital peut vite s'avérer très élevée.
@@ -57,10 +78,10 @@ En effet, la liste des composants d'un système digital se compose :
 
 Une rapide évaluation du coût d'une configuration moyenne dépasse largement les 1000€ sans compter les rails, les locos, voitures, wagons, et les éléments de décor. Rien que l'électronique! ([source freedcc](http://lib.znate.ru/docs/index-143311.html))
 
-Mais quel plaisir que celui de voir évoluer plusieurs trains en même temps, certains automatiquement, avec un réalisme surprenant, tout en respectant les règles de sécurité.
+Quel plaisir que celui de voir évoluer plusieurs trains en même temps, certains automatiquement, avec un réalisme surprenant, tout en respectant les règles de sécurité. **Mais comment faire sans se ruiner ?**
 
 ##La solution
-Notre approche vise à réduire considérablement ce poste de coût en réalisant par nous-même une grande partie des équipements ci-dessus, à partir de modules Arduino et selon une architecture plus simple qui réduit le nombre des éléments matériels, à l'exception des éléments de base conformes à la norme DCC.
+Notre approche vise à réduire considérablement ce coût en réalisant par nous-même une grande partie des équipements ci-dessus, à partir de modules Arduino et selon une architecture plus simple qui réduit le nombre des éléments matériels, à l'exception des éléments de base conformes à la norme DCC.
 
 Deux cas possibles se présentent :
 
@@ -96,6 +117,8 @@ Autour de ces deux parties gravitent un certain nombre d'organes :
 
 Signalons immédiatement que les interfaces d'accessoires ne seront pas nécessairement conformes à la norme DCC, pour décharger le bus DCC. Des bus de communication entre Arduino et périphériques sont mieux adaptés que le DCC à cette tâche.
 
+En effet, la norme DCC limite le nombre de commandes à 100 - 150 par seconde avec un taux de répétition important.
+
 Il en va de même pour les connexions des organes d'IHM tant que l'on n'utilise pas des produits du commerce.
 
 Mais l'intégration de produits du commerce n'est pas exclue pour ceux qui en disposent, car des circuits d'interface seront envisagés.
@@ -103,14 +126,14 @@ Mais l'intégration de produits du commerce n'est pas exclue pour ceux qui en di
 ###Que commander avec l'IHM ?
 Que commande t-on à partir d'un poste de pilotage ?
 
-* les trains (locos et wagons) en DCC,
+* les trains (locos et wagons), nécessairement en DCC,
 * les aiguilles avec, de préférence, des servos, sans exclure les moteurs d'aiguille du commerce,
 * les itinéraires (avec mode automatique ou manuel)
 * les feux de circulation ferroviaire, les barrières
 * les animation lumineuses : lampadaires, batiments, boutiques, enseignes, feux routiers, panneaux..
 * les animation sonores : annonces en gare, etc..
 * la configuration des paramètres de l'ensemble
-* la programmation des décodeurs
+* la programmation des décodeurs (en DCC aussi)
 
 S'il s'agit d'une manette (manette réelle ou smartphone/tablette faisant tourner une application de type "manette"), les commandes se limitent au pilotage des trains (moteur et fonctions).
 
@@ -121,28 +144,37 @@ S'il s'agit d'un ordinateur personnel, toutes les commandes ainsi que la rétros
 ###Quelle interfaces et moyens de communication ?
 Entre modules, il faut bien s'entendre. Les connexions à réaliser pourront être tout ou partie de cette liste :
 
-* l'interface avec un PC (pour la configuration et pour offrir un bel écran TCO, la compatibilité avec un logiciel du marché n'étant pas recherchée dans un première étape)
-* l'interface avec un TCO réel (optionnel, ou plusieurs) avec l'affichage de l'état du réseau (aiguilles et positions des trains), indicateurs lumineux, boutons de commande des aiguilles, etc..
+* l'interface avec un PC sera en USB ou sans fil en BlueTooth ou WiFi (pour la configuration et pour offrir un bel écran TCO, la compatibilité avec un logiciel du marché n'étant pas recherchée dans un première étape)
+* l'interface avec un TCO réel (optionnel, ou plusieurs) avec l'affichage de l'état du réseau (positions des aiguilles et des trains), indicateurs lumineux, boutons de commande manuelle des aiguilles, etc.. Un tel TCO sera avantageusement construit autour d'un Arduino et relié au système par I2C.
 * l'interfaces avec une ou plusieurs manettes de commande de train (avec ou sans fil, simple ou sophistiquée - à base de smartphone ou de tablette ou faite sur mesure / DIY)
 * l'interfaces de rétrosignalisation (détection de passage/présence des trains, reconnaissance des N°s de trains)
 * l'interfaces de commande d'aiguilles
 * l'interfaces de commande d'animations lumineuses
 * l'interfaces de commande d'animations sonores
-* bien-sur cette liste est non exhaustive... tout dépend de la sophistication qui sera voulue
+* bien-sur cette liste est non exhaustive... tout dépend de la sophistication qui sera voulue. Pour ces dernières interfaces, le moyen de communication va découler de l'architecture qui est décrite.
 
 
 ## Schémas d'architecture
-La Figure 3 représente les ingrédients d'un exemple de système, où les commandes sont regroupées dans un TCO qui supporte la génération du DCC, le pilotage des trains et les commande des autres éléments du réseau par l'intermédiaire d'un controlleur. celui-ci pilote directement des accessoires (aiguille et capteurs) et produit la rétrosignalisation.
+La Figure 6 représente un exemple de système composé de deux parties importantes qui coopèrent pour assurer l'ensemble des animations d'un réseau : la génération du DCC, donc le pilotage des trains, d'un coté et le contrôle du réseau, donc les accessoires de l'autre coté.
 
-![](images/DCCArchi3.jpg)
+![](images/DCCArchi6.jpg)
 
-Une autre architecture ajoute des manettes pour piloter indépendament les uns des autres.
+Le pilotage des trains requiert la génération du signal DCC. Le comportement des trains sera la résultante des actions du ou des pilotes (manettes) et des retours de signalisation (cantons libres ou occupés).
+Le pilotage d'un train nécessitant la connaissance de son adresse DCC, il est indispensable de connaitre sa position et les contraintes liées à cette position (occupation du canton suivant, sémaphore ou contrainte d'itinéraire). 
 
-![](images/DCCArchi4.jpg)
+L'Arduino Générateur DCC recevra donc les commandes des pilotes directement et les informations de positionnement et de cantonnement par l'intermédiaire de l'Arduino Contrôleur de réseau.
 
-Une troisième architecture permet le pilotage par un ordnateur personnel.
+Ce dernier devra s'occuper des différents capteurs (capteurs de présence, d'occupation, d'identification, d'incidents, etc..) et des différents actionneurs (aiguilles, signaux, éclairages, sons, etc..).
 
-![](images/DCCArchi5.jpg)
+Tous les deux maintiendront des tableaux de variables communes qui représentent l'état du trafic et permettent au Générateur DCC de piloter les trains.
+
+La répartition des fonctions entre les deux Arduino est représentée sur la figure 7
+
+![](images/DCCArchi7.jpg)
+
+A ce système, il sera possible d'ajouter des manettes pour piloter les trains indépendament les uns des autres.
+
+Une dernière interface permettra le pilotage par un ordinateur personnel.
 
 
 ##Flexibilité, evolutivité
@@ -158,8 +190,7 @@ Mais d'autres technologies de communication seront supportées notamment pour l'
 * Les aiguilles sont commandées via des servos par la librairie servo, mais aussi via des relais pour les moteurs d'aiguillage à impulsion.
 * Les Leds des feux de signalisation et des éclairages sont commandées via un étage de puissance puisque l'Arduino ne sera pas à même de fournir l'ampérage nécessaire en général.
 
-##Détail important pour le code (à voir si un seul)
-Qu'importe la présence d'un ou plusieurs Arduinos, il faut tenir compte du caractère d'urgence de certains messages DCC comme l'arrêt total du système. En effet, tout réseau ne comportera pas automatiquement de rétrosgnalisation. Quelles solutions ?
 
 ##Avertissement
-De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif.
+De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif ou récalcitrant.
+
