@@ -108,8 +108,8 @@ Enfin, l'avantage du DIY est que ce modèle peut servir de base pour un réseau 
 
 ##Quelle architecture matérielle ?
 Deux parties principales sont au coeur de cette architecture :
-- le ***générateur de signaux de puissance DCC*** qui orchestre l'ensemble du réseau
-- le ***gestionnaire d'accessoires*** qui assure la commande des accessoires et la rétrosignalisation
+- le ***générateur de signaux de puissance DCC*** qui orchestre l'ensemble du réseau; en tout cas le matériel roulant en protocole DCC,
+- le ***gestionnaire d'accessoires*** qui assure la commande des accessoires et la rétrosignalisation, en symbiose avec le générateur selon des protocoles inter-Arduino plutôt que DCC.
 
 Autour de ces deux parties gravitent un certain nombre d'organes :
 - les ***organes d'IHM*** (interface homme-machine) tels que manettes, TCO, tablettes, PC avec différents types de liaisons,
