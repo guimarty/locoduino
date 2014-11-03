@@ -172,17 +172,39 @@ La répartition des fonctions entre les deux Arduino est représentée sur la fi
 
 ![](images/DCCArchi7.jpg)
 
-A ce système, il sera possible d'ajouter des manettes pour piloter les trains indépendament les uns des autres.
+L'Arduino contrôleur du circuit, à gauche, n'a pas d'interface homme-machine. Il est chargé des détections et des actions :
+- détections d'occupation (détection de consommation, barrières infrarouges, etc..) pour les zones de ralentissement et les zones d'arrêt de chaque canton. Ces détections servent à suivre la position des trains;
+- identification des trains (capteur RFID, code barre, etc..) pour connaitre les numéros de trains, grâce à laquelle le système pourra piloter les trains par leur adresse DCC;
+- autres capteurs (photosensibles, par exemple, pour commander des animations de jour ou de nuit)
+- commandes d'aiguilles pour positionner les aiguilles en mode droit ou dévié;
+- commande des signaux (feux tricolores);
+- animation sonores correspondant aux passages des trains (annonces en gare, bruits divers);
+- commandes d'éclairage (éclairage public, éclairage des batiments et boutiques, amimations lumineuses);
+- commandes de rotondes et passages à niveau;
+- autres commandes selon les contextes.
 
-Une dernière interface permettra le pilotage par un ordinateur personnel.
+Toutes le détections et l'état des dispositifs commandés sont consignés dans une table d'états qui est mise à jour à chaque détection et chaque ordre reçu de l'Arduino générateur DCC et IHM.
 
+Ce dernier dispose d'une table similaire qui sert à alimenter le générateur DCC (ralentir un train entrant dans une zone de ralentissement, changer l'état d'une aiguille pour le passage d'un train selon un itinéraire donné, etc..) et à afficher l'état du réseau sur un TCO et/ou sur un écran informatique.
+Des manettes et des boutons manipulés par les pilotes transmettent des ordres qui sont acheminés vers l'Arduino contrôleur du circuit qui les exécutera en mettant sa table à jour.
+
+Les deux tables sont synchronisées par un protocole de communication rapide tel que l'I2C.
+
+Rien n'empêche de réaliser l'Arduino contrôleur du circuit et l'Arduino générateur DCC sur des bases Arduino Mega qui offrent un grand nombre d'entrées-sorties. Si ce nombre n'est pas suffisant (cas d'un grand réseau), plusieurs Arduino peuvent être connectés sur ce bus I2C.
 
 ##Flexibilité, evolutivité
 On tendra vers un système polyvalent. Petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir, si le besoin s'en fait sentir, la possibilité d'agrandir sans changer ce qui a été fait précédemment. Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
 
-Une technologie de communication est nécessaire pour permettre aux Arduinos de coopérer, entre eux d'une part et avec un certain nombre de périphériques d'autre part. Nous en déduisons du fait de sa présence native et d'une documentation bien fournie que celui-ci pourra être de l'I2C.
+Une technologie de communication est donc nécessaire pour permettre aux Arduinos de coopérer, entre eux d'une part et avec un certain nombre de périphériques d'autre part. Nous en déduisons du fait de sa présence native et d'une documentation bien fournie que celui-ci pourra être de l'I2C.
 
 Mais d'autres technologies de communication seront supportées notamment pour l'interface avec un ordinateur personnel qui supporte principalement l'USB en communications série asynchrone, le Bluetooth ou le Wifi pour le sans fil.
+
+##Compatibilité avec des modules existant
+La possibilité de réaliser un système de pilotage 100% à base d'Arduino existe bien réellement, mais, dans la pratique, beucoup de modèlistes voudront réutiliser certains dispositifs qu'ils possèdent déjà.
+
+L'Arduino contrôleur du circuit pourrait, par exemple, générer le signal de rétrosignalisation du protocole S88 pour s'interfacer avec une centrale existante. 
+
+Un décodeur d'accessoires à base d'Arduino peut aussi trouver sa place dans un système comprenant un logiciel de pilotage sur PC et une centrale minimale.
 
 
 ##Quelques exemples de choix d'implémentation grâce aux bibliothèques existantes et fiables
@@ -191,6 +213,6 @@ Mais d'autres technologies de communication seront supportées notamment pour l'
 * Les Leds des feux de signalisation et des éclairages sont commandées via un étage de puissance puisque l'Arduino ne sera pas à même de fournir l'ampérage nécessaire en général.
 
 
-##Avertissement
-De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif ou récalcitrant.
+##Avertissement et conclusions
+De ce projet découlera des programmes qui ne corresponderont pas forcément au réseau que vous possédez, mais ce site vous aidera à les adapter. Les différents articles qui suivent expliqueront la marche à suivre, mais une connaissance minimum de l'environnement de programmation (IDE) et du langage seront nécessaires. Comprendre vous permettra aussi de vous sortir d'un bug intempestif ou récalcitrant.
 
