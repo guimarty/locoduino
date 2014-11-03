@@ -195,6 +195,8 @@ Rien n'empêche de réaliser l'Arduino contrôleur du circuit et l'Arduino gén�
 ##Flexibilité, evolutivité
 On tendra vers un système polyvalent. Petit ou grand réseau, il s'agit d'avoir la même architecture pour avoir, si le besoin s'en fait sentir, la possibilité d'agrandir sans changer ce qui a été fait précédemment. Dans cette optique de système polyvalent, si le réseau même petit contient bon nombre de choses, un Arduino seul ne sera pas suffisant.
 
+On notera principalement que la transmission et la traction DCC n'est utilisée QUE pour commander les matériels roulants mais pas les accessoires, ce qui permet de se passer des décodeurs d'accessoires. 
+
 Une technologie de communication est donc nécessaire pour permettre aux Arduinos de coopérer, entre eux d'une part et avec un certain nombre de périphériques d'autre part. Nous en déduisons du fait de sa présence native et d'une documentation bien fournie que celui-ci pourra être de l'I2C.
 
 Mais d'autres technologies de communication seront supportées notamment pour l'interface avec un ordinateur personnel qui supporte principalement l'USB en communications série asynchrone, le Bluetooth ou le Wifi pour le sans fil.
