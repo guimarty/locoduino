@@ -37,17 +37,17 @@ void loop()
   
   //fonction du chenillard selon son état
   switch(etat_chenillard){
-    case: 0
+    case 0:
       eteindre_chenillard();
-      break
-    case: 1
+      break;
+    case 1:
       if (millis()-temps_chenillard > 50)//Utilisation d'un temps de 50ms multiple de 50 et 500ms
       {
 	etat_temps_chenillard++;//On incrémente le compteur pour les 50ms
 	fonction_chenillard(etat_temps_chenillard);//On exécute la fonction du chenillard en fonction du compteur
 	temps_chenillard = millis();//On stocke la nouvelle valeur du temps pour en quelque sorte remettre à zéro la condition du if précédent
-	break
       }
+      break;
   }
 }
 	
